@@ -7,17 +7,21 @@
         <title>H A N D L E </title>
     </head>
     <body>
-         <%/*
-            HttpSession sesion=request.getSession();
-            if (sesion.getAttribute("logueado")==null || sesion.getAttribute("logueado").equals("0")){
-                response.sendRedirect("login.jsp");
-            }*/
+        <%/*
+           HttpSession sesion=request.getSession();
+           if (sesion.getAttribute("logueado")==null || sesion.getAttribute("logueado").equals("0")){
+               response.sendRedirect("login.jsp");
+           }*/
         %>
-        <h1>H A N D L Ehomehome</h1>
-        <h1>H A N D L Ehomehome</h1>
-        <h1>H A N D L Ehomehome</h1>
-        <h1>H A N D L Ehomehome</h1>
-        <h1>H A N D L Ehomehome</h1>
-        <h1>H A N D L Ehomehome</h1>
+        <div>
+            <a href="login.jsp">
+            <h1>H A N D L Ehomehome</h1>
+            <h1>H A N D L Ehomehome</h1>
+            <h1>H A N D L Ehomehome</h1>
+            <h1>H A N D L Ehomehome</h1>
+            <h1>H A N D L Ehomehome</h1>
+            <h1>H A N D L Ehomehome</h1>
+            </a>
+        </div>
     </body>
 </html>

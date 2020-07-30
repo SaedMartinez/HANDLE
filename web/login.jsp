@@ -10,7 +10,7 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-sm">
-                    <form method="post">
+                    <form action="Iniciar" method="post">
                         <div class="form-group">
                             <label>Usuario</label>
                             <input type="text" class="form-control" name="fuser" placeholder="Nombre de Usuario">
