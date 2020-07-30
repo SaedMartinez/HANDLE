@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2020 a las 00:56:04
+-- Tiempo de generación: 30-07-2020 a las 04:25:24
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `name` varchar(35) DEFAULT NULL,
   `pass` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `users`
