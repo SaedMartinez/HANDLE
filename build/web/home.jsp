@@ -19,42 +19,39 @@
         <link rel="stylesheet" href="assets/css/supersized.css">
         <link rel="stylesheet" href="assets/css/style.css">   
     </head>
-    
+
     <body>
         <!--contenedor body-------------------------------------------------------------------------------------->
-    <div class="page-container">
+        <div class="page-container">
         <!--contenedor navbar-------------------------------------------------------------------------------------->
-        <div class="navbar">
-            <div class="menu">
-                <h3>Perfil</h3>
-                <h3>Configuración</h3>
+            <div class="navbar">
+                <div class="menu">
+                    <h3 id="elemento1">Perfil</h3>
+                    <h3 id="elemento2">Configuración</h3>
+                </div>
+                <div class="logo">
+                <h1>H A N D L E</h1>
+                </div>
             </div>
-            <h1>H A N D L E</h1>
-
-        </div>
         <!--contenedor contenido------------ aca utilizaremos iframees-------------------------------------------------------------------------->
-        <div class="content">
-            <div class="box1">
+            <div class="box">
+                <iframe frameborder="0" id="frame" src="registryusers.jsp"></iframe>
             </div>
-            <!--contenedor footer-------------------------------------------------------------------------------------->
+        <!--contenedor footer-------------------------------------------------------------------------------------->
             <div class="footer">
-                <p>Herramientas para tu inventario:</p>
-                <p>
+                <p class="tf">Herramientas para tu inventario:</p>
+                <p class="tf2">
                     <a class="informacion" href=""></a>
                     <a class="lapiz" href=""></a>
                 </p>
-                <div class="derechosautor">
-                    Iconos diseñados por <a href="https://www.flaticon.es/autores/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
-                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Javascript -->
-    <script src="assets/js/jquery-1.8.2.min.js"></script>
-    <script src="assets/js/supersized.3.2.7.min.js"></script>
-    <script src="assets/js/supersized-init.js"></script>
-    <script src="assets/js/scripts.js"></script>
-    
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.8.2.min.js"></script>
+        <script src="assets/js/supersized.3.2.7.min.js"></script>
+        <script src="assets/js/supersized-init.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
     </body>
 </html>

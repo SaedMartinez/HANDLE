@@ -12,80 +12,167 @@ and open the template in the editor.
     padding: 0;
 }
 
+.boxform{
+    padding-top: 7%;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #3d3d3d;
+    width: 40%;
+    height: 300px;
+    background: rgba(45, 45, 45, .3);
+    position: absolute;
+    top: 20%;
+    left: 30%; 
+}
 body {
-    background: #f8f8f8;
     font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     color: #fff;
 }
 
 .page-container {
     height: 670px;
+    width: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 
 /*navbar-------------------------------------*/
 
 .navbar {
-    height: 76px;
-    background: rgba(45, 45, 45, .15);
+    height: 74px;
+    background: rgba(45, 45, 45, .60);
+    position: relative;
 }
 
-h1 {
+.logo {
     width: 15%;
-    padding: 1.5%;
+    padding: 0;
     font-size: 35px;
     font-weight: 750;
     text-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    top: 40%;
+    left: 15%;
+    position: absolute;
 }
 
 .menu {
-    margin-top: 11px;
-    width: 35%;
+    width: 28%;
     height: 74px;
     float: right;
 }
 
-div h3 {
-    padding-bottom: 25px;
-    height: 20px;
-    margin-top: 2.5%;
-    margin-left: 2.5%;
-    padding: 4px;
+#elemento1 {
+    height: 20px;    
     font-size: 20px;
     font-weight: 750;
     display: inline-block;
-    width: 30%;
-    border-style: solid 6px;
     font-family: 'Zilla Slab', serif;
     border-left: 1.3px solid whitesmoke;
+    top: 50%;
+    left: 60%;
+    position: absolute;
+}
+#elemento2 {
+    height: 20px;    
+    font-size: 20px;
+    font-weight: 750;
+    display: inline-block;
+    font-family: 'Zilla Slab', serif;
+    border-left: 1.3px solid whitesmoke;
+    top: 50%;
+    left: 75%;
+    right: 110px;
+    position: absolute;
 }
 
 
 /*Container------------------------------------------------*/
 
-.content {
-    margin-left: 5%;
-    height: 87%;
-    width: 90%;
+.box {
+
+    margin-left: 0;
+    padding: 0;
+    height: 530px;
+    width: 100%;
+}
+iframe{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 530px;
+    background: rgba(45, 45, 45, .60);
+}
+.inside-box {
+    height: 530px;
+    width: 100%;
 }
 
+.leftside{
+
+}
+.rightside{
+    width: 75%;
+    height: 530px;
+    position: absolute;
+    right: .1%;
+}
+#titleregistro{
+    position: absolute;
+    right: 50%;
+    top: 10%;
+}
+#textregistro{
+    position: absolute;
+    right: 50%;
+    top: 30%;
+}
+#registro {
+    text-align: right;
+    position: absolute;
+    right: 10%;
+    bottom: 15%;
+}
+#registro button {
+    width: 120px;
+    height: 32px;
+    background: #25A741;
+    border-radius: 12px;
+    border: 1px solid #8EFCA5;
+}
+#registro input{   
+    width: 180px;
+    height: 25px;
+    
+}
+/*Footer------------------------------------------------*/
 .footer {
-    margin-top: 41.5%;
     text-align: center;
-    height: 12%;
+    height: 10%;
     width: 100%;
     font-size: 18px;
     font-weight: 700;
     text-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+    position: absolute;
+    bottom: .01%;
+    background: rgba(45, 45, 45, .60);
+}
+.tf{
+    position: absolute;
+    bottom: 40px;
+    left: 43%;
+}
+.tf2{
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
 }
 
 .footer a {
     display: inline-block;
     width: 32px;
-    height: 35px;
-    margin-top: 15px;
+    height: 32px;
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
@@ -103,11 +190,6 @@ div h3 {
 .footer a:hover {
     background-position: center bottom;
 }
-
-.derechosautor {
-    font-size: 0.01px;
-}
-
 
 /* OTROS  ------------------------------------------------*/
 
@@ -152,7 +234,6 @@ input::-webkit-input-placeholder {
 
 input:focus {
     outline: none;
-    -moz-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
     -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
 }
@@ -183,9 +264,8 @@ button {
 }
 
 button:hover {
-    -moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
     -webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
-    box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .45) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
 }
 
 button:active {

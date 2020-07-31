@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Controlador.Consutas;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -31,6 +32,18 @@ public class RegistroUsuarios extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        Consutas co = new Consutas();
+        Boolean m =true;
+        String nombre = request.getParameter("fname");
+        String contraseña = request.getParameter("fpassword");
+        if(co.registrar(nombre, contraseña)){
+            response.sendRedirect("menusers.jsp");
+        }else{
+            response.sendRedirect("registryusers.jsp");
+            m = false;
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
