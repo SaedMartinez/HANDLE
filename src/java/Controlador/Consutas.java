@@ -42,14 +42,17 @@ public class Consutas extends Conexion{
         return false;
         
     }
-    public boolean registrar(String nombre,String contraseña){
+    public boolean registrar(String nombre,String contraseña,String estado,String cargo,String nivel){
         
         PreparedStatement pst=null;
         try {
-            String consulta = "INSERT INTO users (name, pass) VALUES (?,?)";
+            String consulta = "INSERT INTO users (name, pass, ustatus, uposition, ulevel) VALUES (?,?,?,?,?)";
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, nombre);
             pst.setString(2, contraseña);
+            pst.setString(3, estado);
+            pst.setString(4, cargo);
+            pst.setString(5, nivel);
             if(pst.executeUpdate() == 1){
                 return true;
             }
@@ -64,9 +67,5 @@ public class Consutas extends Conexion{
             }
         }
         return false;
-    }
-    public static void main(String[] args) {
-        Consutas  co = new Consutas();
-        System.out.println(co.registrar("trabajador1", "1234"));
     }
 }

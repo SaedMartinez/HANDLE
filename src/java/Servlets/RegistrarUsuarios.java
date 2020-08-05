@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Saed
  */
-public class RegistroUsuarios extends HttpServlet {
+public class RegistrarUsuarios extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,16 +34,18 @@ public class RegistroUsuarios extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         Consutas co = new Consutas();
-        Boolean m =true;
-        String nombre = request.getParameter("fname");
+        String nombre = request.getParameter("fuser");
         String contraseña = request.getParameter("fpassword");
-        if(co.registrar(nombre, contraseña)){
+        String estado = request.getParameter("fstatus");
+        String cargo= request.getParameter("fposition");
+        String nivel= request.getParameter("flevel");
+        
+        
+        if(co.registrar(nombre, contraseña, estado, cargo, nivel)){
             response.sendRedirect("menusers.jsp");
         }else{
             response.sendRedirect("registryusers.jsp");
-            m = false;
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

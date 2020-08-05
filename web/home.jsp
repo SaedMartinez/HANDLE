@@ -35,7 +35,7 @@
             </div>
         <!--contenedor contenido------------ aca utilizaremos iframees-------------------------------------------------------------------------->
             <div class="box">
-                <iframe frameborder="0" id="frame" src="registryusers.jsp"></iframe>
+                <iframe frameborder="0" id="frame" src="menusers.jsp"></iframe>
             </div>
         <!--contenedor footer-------------------------------------------------------------------------------------->
             <div class="footer">
