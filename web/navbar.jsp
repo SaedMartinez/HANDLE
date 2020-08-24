@@ -9,7 +9,6 @@
     <body>
         <div class="navbar-content">
             <a>navbarnavrrnavbarnavbarnavbar</a>
-            
         </div>
     </body>
 </html>

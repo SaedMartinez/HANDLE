@@ -19,7 +19,11 @@ body {
 
 .navbar{
     grid-area: 1/1/2/14;
-    background-color: azure;
+    background-color: blue;
+}
+iframe{
+    height: 100%;
+    width: 100%;
 }
 .box{
     grid-area: 2/1/5/14;
