@@ -15,11 +15,17 @@
             <div class="navbar">
                 <iframe frameborder="0" src="navbar.jsp"></iframe>
             </div>
-            <div class="box">
-                <a>contenido</a>
+            <div class="box"> 
+                <a>contenido1</a>
+            </div>
+            <div class="box"> 
+                <a>contenido2</a>
+            </div>
+            <div class="box"> 
+                <a>contenido3</a>
             </div>
             <div class="footer">
-                <p>footer</p>
+                <a>footer</a> 
             </div>
         </div>
     </body>

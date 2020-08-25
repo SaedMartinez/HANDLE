@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <div class="navbar-content">
+        <div class="navbar-grid">
             <div class="h-logo">H A N D L E</div>
             <div class="h-home">Home</div>
             <div class="h-menu">+</div>
