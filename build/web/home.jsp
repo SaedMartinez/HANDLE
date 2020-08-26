@@ -18,10 +18,10 @@
             <div class="box"> 
                 <a>contenido1</a>
             </div>
-            <div class="box"> 
+            <div class="box2"> 
                 <a>contenido2</a>
             </div>
-            <div class="box"> 
+            <div class="box3"> 
                 <a>contenido3</a>
             </div>
             <div class="footer">

@@ -10,8 +10,10 @@ body {
 }
 
 /*  LOGIN  */
-.chart {
-    grid-area: 2/5/4/10;
+.chart{
+    grid-area: 8/10/20/16;
+    /*grid-column: 10/16;
+    grid-row: 8/20;*/
     background-color: azure;
     text-align: center;
     padding-top: 10px; 
@@ -53,8 +55,7 @@ iframe{
     grid-column: 1/25;
     background-color:  blanchedalmond;
 }
-.box-content{
-}
+
 
 /*  FOOTER  */
 .footer{
