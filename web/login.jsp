@@ -10,27 +10,20 @@
 
 <body>
     <div class="grid-container">
-        <div class="navbar">
-            <iframe frameborder="0" src="navbar.jsp"></iframe>
+        <div class="chart">
+            <form action="Iniciar" method="post">
+                <div>
+                    <input type="text" name="fuser" placeholder="Nombre de Usuario">
+                    <p> For your safety dont share your user, ITS ONLY YOURS! </p>
+                </div>
+                <br><br>
+                <div>
+                    <input type="password" name="fpassword" placeholder="Contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary" name="flogin">Ingresar</button>
+            </form>
         </div>
-
-        
-            <div class="chart">
-                <form action="Iniciar" method="post">
-                    <div>
-                        <input type="text" name="fuser" placeholder="Nombre de Usuario">
-                        <p> For your safety dont share your user, ITS ONLY YOURS! </p>
-                    </div>
-                    <br><br>
-                    <div>
-                        <input type="password" name="fpassword" placeholder="Contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="flogin">Ingresar</button>
-                </form>
-            </div>
-        </div>
-    
-
+    </div>
 </body>
 
 </html>

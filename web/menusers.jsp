@@ -10,23 +10,16 @@
     </head>
 
     <body>
-        <div class="grid-container">
-            <div class="navbar">
-                <iframe frameborder="0" src="navbar.jsp"></iframe>
-            </div>
-             <br>
-             <br>
-            <h3 style="text-align: center" >Administracion de cuentas</h3><br>
-            <form>
-                <h3 >Gestionar usuarios</h3>
-                <button  type="submit" name="fsend"><a href="registryusers.jsp">Usuarios nuevos</a></button>
-                <button  type="submit" name="fsend"><a href="manageusers.jsp">Editar usuarios</a></button>
-            </form>
-            <br>
-            <br>
-
-        </div>
-
+        <br>
+        <br>
+        <h3 style="text-align: center" >Administracion de cuentas</h3>
+        <br>
+        <form>
+            <h3 >Gestionar usuarios</h3>
+            <button  type="submit" name="fsend"><a href="registryusers.jsp">Usuarios nuevos</a></button>
+            <button  type="submit" name="fsend"><a href="manageusers.jsp">Editar usuarios</a></button>
+        </form>
+        <br>
+        <br>
     </body>
 </html>
-
