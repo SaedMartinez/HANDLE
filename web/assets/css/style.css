@@ -55,7 +55,14 @@ iframe{
     grid-column: 1/25;
     background-color:  blanchedalmond;
 }
-
+.box2{
+    grid-column: 1/25;
+    background-color:  blanchedalmond;
+}
+.box3{
+    grid-column: 1/25;
+    background-color:  blanchedalmond;
+}
 
 /*  FOOTER  */
 .footer{

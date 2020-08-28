@@ -8,12 +8,13 @@
         <!-- BOOTSTRAP -->
         <title>H A N D L E |Login</title>
     </head>
-    
+
     <body>
-        <div class="inside-box">
-            <div class="leftside">
+        <div class="grid-container">
+            <div class="navbar">
+                <iframe frameborder="0" src="navbar.jsp"></iframe>
             </div>
-            <div class="rightside">
+            <div class="box"> 
                 <h2 id="titleregistro">Informacion de nuevo usuario</h2>
                 <p id="textregistro">Ingresa todos los datos del usuario que desear registrar</p>
                 <form action="Registro" id="registro" method="post">
@@ -39,6 +40,9 @@
                     </div>
                     <button type="submit" class="btn btn-primary" name="fsend">Crear</button>
                 </form>
+            </div>
+            <div class="footer">
+                <a>footer</a> 
             </div>
         </div>
     </body>

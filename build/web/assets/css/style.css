@@ -2,73 +2,70 @@ body {
     padding: 0;
 }
 
-.grid-container {
+.grid-container{
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     grid-auto-rows: 1em;
     grid-gap: 5px;
 }
 
-
 /*  LOGIN  */
-
-.chart {
+.chart{
     grid-area: 8/10/20/16;
     /*grid-column: 10/16;
     grid-row: 8/20;*/
     background-color: azure;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 10px; 
 }
 
-
 /*  NAV-BAR  */
-
-.navbar {
+.navbar{
     grid-column: 1/25;
     grid-row: 1/5;
     background-color: azure;
 }
-
-iframe {
+iframe{
     height: 100%;
     width: 100%;
 }
-
-.navbar-grid {
+.navbar-grid{
     display: grid;
     grid-template-columns: repeat(13, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 1px;
 }
-
-.h-logo {
+.h-logo{
     grid-column: 2/4;
     grid-row: 2/3;
 }
 
-.h-home {
+.h-home{
     grid-column: 11/12;
     grid-row: 2/3;
+   
 }
-
-.h-menu {
+.h-menu{
     grid-column: 13/14;
     grid-row: 2/3;
 }
 
-
 /*  BOX  */
-
-.box {
+.box{
     grid-column: 1/25;
-    background-color: blanchedalmond;
+    background-color:  blanchedalmond;
+}
+.box2{
+    grid-column: 1/25;
+    background-color:  blanchedalmond;
+}
+.box3{
+    grid-column: 1/25;
+    background-color:  blanchedalmond;
 }
 
-
 /*  FOOTER  */
-
-.footer {
+.footer{
     grid-column: 1/25;
     background-color: darkgreen;
 }

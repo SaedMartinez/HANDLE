@@ -10,16 +10,23 @@
         <!-- CSS -->
         <link rel="stylesheet" href="assets/css/style.css"> 
         <!-- BOOTSTRAP -->
-        <title>H A N D L E |Login</title>
+        <title>H A N D L E | Perfil</title>
     </head>
 
     <body>
-        <div class="grid-container">
+        <div class="grid-container"> 
             <div class="navbar">
                 <iframe frameborder="0" src="navbar.jsp"></iframe>
             </div>
             <div class="box"> 
-                <h3>Listado de usuarios </h3>
+                <a>foto</a>
+            </div>
+            <div class="box"> 
+                <a>nombre</a><br>
+                <a>descripcion</a>
+            </div>
+            <div class="box"> 
+                <a>tu actividad</a>
             </div>
             <div class="footer">
                 <a>footer</a> 
