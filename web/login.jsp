@@ -11,16 +11,16 @@
 <body>
     <div class="grid-container">
         <div class="chart">
-            <form action="Iniciar" method="post">
+            <form action="Validar" method="post">
                 <div>
-                    <input type="text" name="fuser" placeholder="Nombre de Usuario">
+                    <input type="text" name="vuser" placeholder="Nombre de Usuario">
                     <p> For your safety dont share your user, ITS ONLY YOURS! </p>
                 </div>
                 <br><br>
                 <div>
-                    <input type="password" name="fpassword" placeholder="Contraseña">
+                    <input type="password" name="vpassword" placeholder="Contraseña">
                 </div>
-                <button type="submit" class="btn btn-primary" name="flogin">Ingresar</button>
+                <button type="submit" name="accion" value="Ingresar">Ingresar</button>
             </form>
         </div>
     </div>

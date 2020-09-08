@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Servlets;
 
-import Controlador.Consutas;
+package Controlador;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,11 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Saed
- */
-public class RegistrarUsuarios extends HttpServlet {
+public class Controlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,21 +21,13 @@ public class RegistrarUsuarios extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
-        Consutas co = new Consutas();
-        String nombre = request.getParameter("fuser");
-        String contraseña = request.getParameter("fpassword");
-        String estado = request.getParameter("fstatus");
-        String cargo= request.getParameter("fposition");
-        String nivel= request.getParameter("flevel");
-        
-        
-        if(co.registrar(nombre, contraseña, estado, cargo, nivel)){
-            response.sendRedirect("menusers.jsp");
-        }else{
-            response.sendRedirect("registryusers.jsp");
+        String accion=request.getParameter("accion");
+        switch (accion){
+            case "Principal":
+                request.getRequestDispatcher("home.jsp").forward(request, response);
+                break;
+            default :
+                throw new AssertionError();
         }
     }
 
