@@ -15,24 +15,19 @@
     </head>
 
     <body>
-        <div class="grid-container">
-            <div class="navbar">
-                <iframe frameborder="0" src="navbar.jsp"></iframe>
+        <div class="navbar">
+            <div class="navbar-grid">
+                <div class="h-logo">H A N D L E</div>
+                <div class="h-home"><a href="Controlador?menu=Principal">Home</a></div>
+                <div class="h-menu">
+                    <form action="Validar" method="post">
+                        <button name="accion" value="Salir">+</button>
+                    </form>
+                </div>
             </div>
-            <div class="box" > 
-                <a href="menuinventory.jsp">Haz gestion de tu inventario</a>
-            </div>
-            <div class="box2" > 
-                <a href="menusers.jsp">administra los usuarios en tu sistema </a>
-            </div>
-            <div class="box3" > 
-                <a href="cprofile.jsp">perfil </a>
-                <a>maneja y personaliza tu perfil como deseas</a>
-                <a>esto ayudara que te identifiquen otros miembros de la organizacion mas facil -mira las caracteristicas-</a>
-            </div>
-            <div class="footer">
-                <a>footer</a> 
-            </div>
+        </div>
+        <div style="height: 450px">
+            <iframe name="framebox" style="height: 100%;width: 100%;border: none;" src="principal.jsp"></iframe>
         </div>
     </body>
 </html>

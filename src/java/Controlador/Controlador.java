@@ -1,8 +1,12 @@
 
 package Controlador;
 
+import Modelo.Product;
+import Modelo.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,15 +23,37 @@ public class Controlador extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    Product p=new Product();
+    ProductDAO pdao=new ProductDAO();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String menu=request.getParameter("menu");
         String accion=request.getParameter("accion");
-        switch (accion){
-            case "Principal":
-                request.getRequestDispatcher("home.jsp").forward(request, response);
-                break;
-            default :
-                throw new AssertionError();
+        if (menu.equals("Principal")) {
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        }
+        if (menu.equals("Inventory1")) {
+            request.getRequestDispatcher("inventory1.jsp").forward(request, response);
+        }
+        if (menu.equals("Inventory2")) {
+            switch(accion){
+                case "Listing":
+                    List lista=pdao.listing();
+                    request.setAttribute("vproducts", lista);
+                    break;
+                default:     
+            }
+            request.getRequestDispatcher("inventory2.jsp").forward(request, response);
+        }
+        if (menu.equals("Inventory3")) {
+            request.getRequestDispatcher("inventory3.jsp").forward(request, response);
+        }
+        if (menu.equals("Users")) {
+            request.getRequestDispatcher("menusers.jsp").forward(request, response);
+        }
+        if (menu.equals("Profile")) {
+            request.getRequestDispatcher("cprofile.jsp").forward(request, response);
         }
     }
 

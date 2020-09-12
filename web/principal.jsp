@@ -10,20 +10,21 @@
         <!-- CSS -->
         <link rel="stylesheet" href="assets/css/style.css"> 
         <!-- BOOTSTRAP -->
-        <title>H A N D L E | Perfil</title>
+        <title>H A N D L E</title>
     </head>
-
+    
     <body>
-        <div class="grid-container"> 
-            <div class="box"> 
-                <a>foto</a>
+        <div class="grid-container">
+            <div class="box" > 
+                <a href="menuinventory.jsp">Haz gestion de tu inventario</a>
             </div>
-            <div class="box"> 
-                <a>nombre</a><br>
-                <a>descripcion</a>
+            <div class="box" > 
+                <a href="Controlador?menu=Users&accion=List">administra los usuarios en tu sistema </a>
             </div>
-            <div class="box"> 
-                <a>tu actividad</a>
+            <div class="box" > 
+                <a href="Controlador?menu=Profile">perfil </a>
+                <a>maneja y personaliza tu perfil como deseas</a>
+                <a>esto ayudara que te identifiquen otros miembros de la organizacion mas facil -mira las caracteristicas-</a>
             </div>
             <div class="footer">
                 <a>footer</a> 

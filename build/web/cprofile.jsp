@@ -15,9 +15,6 @@
 
     <body>
         <div class="grid-container"> 
-            <div class="navbar">
-                <iframe frameborder="0" src="navbar.jsp"></iframe>
-            </div>
             <div class="box"> 
                 <a>foto</a>
             </div>

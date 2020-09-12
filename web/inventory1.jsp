@@ -10,23 +10,12 @@
         <!-- CSS -->
         <link rel="stylesheet" href="assets/css/style.css"> 
         <!-- BOOTSTRAP -->
-        <title>H A N D L E | Perfil</title>
+        <title>H A N D L E | Inventario</title>
     </head>
 
     <body>
         <div class="grid-container"> 
-            <div class="box"> 
-                <a>foto</a>
-            </div>
-            <div class="box"> 
-                <a>nombre</a><br>
-                <a>descripcion</a>
-            </div>
-            <div class="box"> 
-                <a>tu actividad</a>
-            </div>
-            <div class="footer">
-                <a>footer</a> 
+            <div class="box">
             </div>
         </div>
     </body>
