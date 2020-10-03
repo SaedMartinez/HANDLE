@@ -34,8 +34,8 @@
                             <label>Usuario</label>
                             <input type="text" value="${CSuser.getUser()}" name="vusersu" class="form-control">
                         </div>
-                        <input type="submit" name="action" value="Agregar" class="btn btn-info">
-                        <input type="submit" name="action" value="Actualizar" class="btn btn-success">
+                        <button type="submit" name="action" value="Add" class=" btn btn-outline-info">Agregar</button>
+                        <button type="submit" name="action" value="Update" class=" btn btn-outline-success">Actualizar</button>
                     </form>
                 </div>
             </div>

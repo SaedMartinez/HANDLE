@@ -33,8 +33,7 @@
                     <a class="dropdown-item" href="#">
                         <img src="img/usuario.png" alt="60" width="60"/>
                     </a>
-                    <a class="dropdown-item" href="#"></a>
-                    <a class="dropdown-item" href="#">correo userrr</a>
+                    <a class="dropdown-item" href="Controller?menu=Profile&action=default" target="myframe">correo userrr</a>
                     <div class="dropdown-divider"></div>
                     <form action="Validate" method="post">
                         <button name="action" value="Salir" class="dropdown-item" href="#">Salir</button>

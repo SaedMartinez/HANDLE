@@ -73,7 +73,7 @@ public class Validate extends HttpServlet {
             String cpass=request.getParameter("vpass");
             us=udao.ValidateL(cuser, cpass);
             if(us.getUser()!=null){
-                request.setAttribute("luser", us);
+                request.getSession().setAttribute("luser", us);
                 request.getRequestDispatcher("Controller?menu=Principal").forward(request, response);
             }else{
                 request.getRequestDispatcher("login.jsp").forward(request, response);

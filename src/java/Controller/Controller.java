@@ -1,5 +1,9 @@
 package Controller;
 
+import Model.Product;
+import Model.ProductDAO;
+import Model.Transaction;
+import Model.TransactionDAO;
 import Model.User;
 import Model.UserDAO;
 import java.io.IOException;
@@ -17,9 +21,24 @@ public class Controller extends HttpServlet {
     //Instancias Modelo
     User us=new User();
     UserDAO udao=new UserDAO();
+    Product p = new Product();
+    ProductDAO pdao=new ProductDAO();
+    Transaction t=new Transaction();
+    TransactionDAO tdao=new TransactionDAO();
+    TransactionDAO tdao2=new TransactionDAO();
     
     //Instancias Controlador
-    int ide;
+        
+        //  users
+        int idu; 
+        
+        //transactions
+        List<Transaction> listP = new ArrayList<>();
+        int item;
+        int ccodep;
+        String cnamep;
+        int cquantityp;
+        String nserie;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,10 +50,10 @@ public class Controller extends HttpServlet {
         if (menu.equals("Users")) {
             switch (action) {
                 case "List":
-                    List listU = udao.list();
+                    List listU = udao.ListU();
                     request.setAttribute("users", listU);
                     break;
-                case "Agregar":
+                case "Add":
                     String CLUpass= request.getParameter("vpasssu");
                     String CLUname=request.getParameter("vnamesu");
                     String CLUpnum=request.getParameter("vpnumsu");
@@ -45,36 +64,36 @@ public class Controller extends HttpServlet {
                     us.setPnum(CLUpnum);
                     us.setStatus(CLUstatus);
                     us.setUser(CLUuser);
-                    udao.addU(us);
+                    udao.AddU(us);
                     request.getRequestDispatcher("Controller?menu=Users&action=List").forward(request, response);
                     break;
                 case "Edit":
-                     ide=Integer.parseInt(request.getParameter("id"));
-                     User u=udao.ListId(ide);
+                     idu=Integer.parseInt(request.getParameter("id"));
+                     User u=udao.ListId(idu);
                      request.setAttribute("CSuser", u);
                      request.getRequestDispatcher("Controller?menu=Users&action=List").forward(request, response);
                     break;
-                case "Actualizar":
+                case "Update":
                     
                     String CLUpassU= request.getParameter("vpasssu");
                     String CLUnameU=request.getParameter("vnamesu");
                     String CLUpnumU=request.getParameter("vpnumsu");
                     String CLUstatusU=request.getParameter("vstatussu");
                     String CLUuserU=request.getParameter("vusersu");
-                    us.setId(ide);
+                    us.setId(idu);
                     us.setPass(CLUpassU);
                     us.setName(CLUnameU);
                     us.setPnum(CLUpnumU);
                     us.setStatus(CLUstatusU);
                     us.setUser(CLUuserU);
-                    udao.update(us);
+                    udao.Update(us);
                     request.getRequestDispatcher("Controller?menu=Users&action=List").forward(request, response);
                     break;
                 case "Desactivate":
-                    ide=Integer.parseInt(request.getParameter("id"));
-                    us.setId(ide);
+                    idu=Integer.parseInt(request.getParameter("id"));
+                    us.setId(idu);
                     us.setStatus("2");
-                    udao.desactivate(us);
+                    udao.Desactivate(us);
                     request.getRequestDispatcher("Controller?menu=Users&action=List").forward(request, response);
                     break;
                 default:
@@ -82,7 +101,87 @@ public class Controller extends HttpServlet {
             }
             request.getRequestDispatcher("users.jsp").forward(request, response);
         }
-        
+        if (menu.equals("Transactions")) {
+            switch (action) {
+                case "Search":
+                    int ccodep = Integer.parseInt(request.getParameter("vcodep"));
+                    p = pdao.SearchP(ccodep);
+                    request.setAttribute("product", p);
+                    request.setAttribute("listP", listP);
+                    request.setAttribute("nserie", nserie);
+                    break;
+                case "Add":
+                    item = item + 1;
+                    ccodep = p.getId();
+                    cnamep = request.getParameter("vnamep");
+                    cquantityp = Integer.parseInt(request.getParameter("vquantityp"));
+
+                    t = new Transaction();
+                    t.setItem(item);
+                    t.setMidproduct(ccodep);
+                    t.setMnamep(cnamep);
+                    t.setMquantity(cquantityp);
+                    listP.add(t);
+                    request.setAttribute("nserie", nserie);
+                    request.setAttribute("listP", listP);
+                    request.setAttribute("nserie", nserie);
+                    break;
+                case "Save":
+                    //Save Transaction-----------------------------------
+                    t.setMiduser(1);
+                    t.setSnumber(nserie);
+                    java.util.Date timenow=new java.util.Date();
+                    SimpleDateFormat formateador = new SimpleDateFormat("yyy/MM/dd");
+                    t.setMdate(formateador.format(timenow));
+                    t.setMstatusp("1");
+                    tdao.SaveTransaction(t);
+
+                    //Save Details Transaction --------------------------------
+                    int idv = Integer.parseInt(tdao.IdTransaction());
+                    for (int i = 0; i < listP.size(); i++) {
+                        t = new Transaction();
+                        t.setId(idv);
+                        t.setMidproduct(listP.get(i).getMidproduct());
+                        t.setMquantity(listP.get(i).getMquantity());
+                        tdao.SaveDetailsT(t);
+                    }
+
+                    //Update Stock --------------------------------
+                    for (int i = 0; i < listP.size(); i++) {
+                        int cantidad = listP.get(i).getMquantity();
+                        int idproducto = listP.get(i).getMidproduct();
+                        Product pr = new Product();
+                        ProductDAO pdaot = new ProductDAO();
+                        pr = pdaot.SearchP(idproducto);
+                        int su = pr.getStock()-cantidad;
+                        pdaot.UpsdateS(su, idproducto);
+                    }
+                    listP = new ArrayList<>();
+                    break;
+                default:
+                    listP = new ArrayList<>();
+                    item=0;
+                    nserie = tdao.ReadSn();
+                    if (nserie == null) {
+                        nserie = "00001";
+                        request.setAttribute("nserie", nserie);
+                    } else {
+                        int incrementar = Integer.parseInt(nserie);
+                        nserie = tdao2.IncrementateSn(incrementar);
+                        request.setAttribute("nserie", nserie);
+                    }
+                    request.getRequestDispatcher("transactions.jsp").forward(request, response);
+            }
+            request.getRequestDispatcher("transactions.jsp").forward(request, response);
+        }
+        if (menu.equals("Profile")) {
+            switch (action) {
+                case "":
+                    break;
+                default:
+                    request.getRequestDispatcher("profile.jsp").forward(request, response);
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

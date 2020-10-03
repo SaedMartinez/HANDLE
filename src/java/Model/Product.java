@@ -4,16 +4,16 @@ package Model;
 
 public class Product {
     int id;
-    String nom;
+    String name;
     int stock;
     String status;
 
     public Product() {
     }
 
-    public Product(int id, String nom, int stock, String status) {
+    public Product(int id, String name, int stock, String status) {
         this.id = id;
-        this.nom = nom;
+        this.name = name;
         this.stock = stock;
         this.status = status;
     }
@@ -26,12 +26,12 @@ public class Product {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getStock() {
@@ -49,6 +49,7 @@ public class Product {
     public void setStatus(String status) {
         this.status = status;
     }
+    
     
     
 }

@@ -8,7 +8,7 @@
         <title>| Transacciones</title>
         <style>
             @media print{
-                .parte01, .btn, .ae{
+                .part01, .btn, .ae{
                     display: none;
                 }  
             }
@@ -16,19 +16,19 @@
     </head>
     <body>
         <div class="d-flex">
-            <div class="col-sm-4 parte01"> 
+            <div class="col-sm-4 part01"> 
                 <div class="card">
-                    <form action="Controlador?menu=RegistrarVenta" method="post">
+                    <form action="Controller?menu=Transactions" method="post">
                         <div class="card-body"> 
                             <div class="form-group">
                                 <label>Datos de Usuario </label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="vcuser" class="form-control" placeholder="Codigo">
+                                    <input type="text" name="vcodeu" class="form-control" placeholder="Codigo">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type=" text" name="vnuser" class="form-control" placeholder="Nombre">
+                                    <input type=" text" name="vnameu" class="form-control" placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -36,27 +36,27 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoproducto" value="${producto.getId()}" class="form-control" placeholder="Codigo">
-                                    <button type="submit" name="accion" value="BuscarProducto" class=" btn btn-outline-info">Buscar</button>
+                                    <input type="text" name="vcodep" value="${product.getId()}" class="form-control" placeholder="Codigo">
+                                    <button type="submit" name="action" value="Search" class=" btn btn-outline-info">Buscar</button>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type=" text" name="nombreproducto" value="${producto.getNom()}" class="form-control" placeholder="Datos producto">
+                                    <input type=" text" name="vnamep" value="${product.getName()}" class="form-control" placeholder="Nombre">
                                 </div>
                             </div>
                             <div class="form-group d-flex">
-                                <div class="col-sm-6 d-flex">
-                                    <input type=" text" name="precio" value="${producto.getPrecio()}" class="form-control" placeholder="Precio">
+                                <div class="col-sm-3 d-flex">
+                                    <input type=" text" class="form-control" placeholder="DATO">
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="number" name="cant" value="1" class="form-control" >
+                                    <input type="number" name="vquantityp" value="1" class="form-control" >
                                 </div>
-                                <div class="col-sm-3">
-                                    <input type=" text" name="stock" value="${producto.getStock()}" class="form-control" placeholder="Stock">
+                                <div class="col-sm-4">
+                                    <input type=" text" name="vstockp" value="${product.getStock()}" class="form-control" placeholder="Stock">
                                 </div>
                             </div>
                             <!--BOTON AGREGAR  -->
                             <div class="form-group">
-                                <button type="submit" name="accion" value="AgregarProducto" class="btn btn-outline-info">Agregar Producto</button>
+                                <button type="submit" name="action" value="Add" class="btn btn-outline-info">Agregar Producto</button>
                             </div>
                         </div>
                     </form>
@@ -67,7 +67,7 @@
                     <div class="card-body"> 
                         <div class="d-flex col-sm-5 ml-auto">
                             <label>Serie</label>
-                            <input type=" text" name="NroSerie" value="${nserie}"class="form-control">
+                            <input type=" text" name="vsnumber" value="${nserie}" class="form-control">
                         </div>
                         <br>
                         <table class="table table-hover">
@@ -76,21 +76,17 @@
                                     <th>Nro</th>
                                     <th>Codigo</th>
                                     <th>Descripcion</th>
-                                    <th>Precio</th>
                                     <th>Cantidad</th>
-                                    <th>SubTotal</th>
                                     <th class="ae" >Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="list" items="${lista}">
+                                <c:forEach var="list" items="${listP}">
                                     <tr>
                                         <td>${list.getItem()}</td>
-                                        <td>${list.getIdproducto()}</td>
-                                        <td>${list.getDescripcionP()}</td>
-                                        <td>${list.getPrecio()}</td>
-                                        <td>${list.getCantidad()}</td>
-                                        <td>${list.getSubtotal()}</td>
+                                        <td>${list.getMidproduct()}</td>
+                                        <td>${list.getMnamep()}</td>
+                                        <td>${list.getMquantity()}</td>
                                         <td class="d-flex">
                                             <a href="#" class="btn btn-warning">Editar</a> 
                                             <a href="#" class="btn btn-danger" style="margin-left: 10px">X</a> 
@@ -101,12 +97,11 @@
                         </table>
                     </div>
                     <div class="card-footer d-flex">
-                        <div class="col-sm-8">
-                            <a href="Controlador?menu=RegistrarVenta&accion=GenerarVenta"  onclick="print()"class="btn btn-outline-success">Generar Venta</a>
-                            <input type=" submit" name="accion" value="Cancelar" class="btn btn-outline-danger">
+                        <div class="col-sm-6">
+                            <a href="Controller?menu=Transactions&action=Save" onclick="print()" class="btn btn-outline-success">Generar</a>
+                            <input type=" submit" name="action" value="Cancel"  class="btn btn-outline-danger">
                         </div>
-                        <div class="col-sm-3 ml-auto">
-                            <input type=" text" name="txtTotal" value="${total}" class="form-control">
+                        <div class="col-sm-4">
                         </div>
                     </div>
                 </div>

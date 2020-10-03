@@ -38,7 +38,7 @@ public class UserDAO {
         return us;
     }
     
-    public List list() {
+    public List ListU() {
         String sql = "select * from t_user";
         List<User> listU = new ArrayList<>();
         try {
@@ -62,7 +62,7 @@ public class UserDAO {
         return listU;
     }
 
-    public int addU(User us) {
+    public int AddU(User us) {
         String sql = "insert into t_user (pass, name, phone, status, user)values(?,?,?,?,?)";
         try {
             con = cn.Connect();
@@ -99,7 +99,7 @@ public class UserDAO {
         return uss;
     }
 
-    public int update(User us) {
+    public int Update(User us) {
         String sql = "update t_user set pass=?, name=?, phone=?, status=?, user=? where id_user=?";
         try {
             con = cn.Connect();
@@ -118,7 +118,7 @@ public class UserDAO {
 
     }
 
-    public int desactivate(User us) {
+    public int Desactivate(User us) {
         String sql = "update t_user set status=? where id_user=?";
         try {
             con = cn.Connect();
