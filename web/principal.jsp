@@ -15,7 +15,7 @@
                         <a style="margin-left: 10px; border:none" class="btn btn-outline-light" href="#">HANDLE</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border:none" class="btn btn-outline-light" href="Controller?menu=Inventory&action=list" target="myframe">Inventario</a>
+                        <a style="margin-left: 10px; border:none" class="btn btn-outline-light" href="Controller?menu=Inventory&action=List" target="myframe">Inventario</a>
                     </li>
                     <li class="nav-item">
                         <a style="margin-left: 10px; border:none" class="btn btn-outline-light" href="Controller?menu=Users&action=List" target="myframe">Usuarios</a>
@@ -27,7 +27,7 @@
             </div>
             <div class="dropdown">
                 <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${luser.getName()}
+                    ${User.getName()}
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">

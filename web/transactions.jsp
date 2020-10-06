@@ -24,11 +24,11 @@
                                 <label>Datos de Usuario </label>
                             </div>
                             <div class="form-group d-flex">
-                                <div class="col-sm-6 d-flex">
-                                    <input type="text" name="vcodeu" class="form-control" placeholder="Codigo">
+                                <div class="col-sm-3">
+                                    <input type="text" name="vcodeu" value="${User.getId()}" class="form-control">
                                 </div>
-                                <div class="col-sm-6">
-                                    <input type=" text" name="vnameu" class="form-control" placeholder="Nombre">
+                                <div class="col-sm-8">
+                                    <input type=" text" name="vnameu" value="${User.getName()}" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,6 +67,7 @@
                     <div class="card-body"> 
                         <div class="d-flex col-sm-5 ml-auto">
                             <label>Serie</label>
+                            <br>
                             <input type=" text" name="vsnumber" value="${nserie}" class="form-control">
                         </div>
                         <br>

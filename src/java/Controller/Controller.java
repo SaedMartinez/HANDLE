@@ -34,6 +34,7 @@ public class Controller extends HttpServlet {
         
         //transactions
         List<Transaction> listP = new ArrayList<>();
+        List<Product> listP2=new ArrayList<>();
         int item;
         int ccodep;
         String cnamep;
@@ -44,6 +45,8 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         String menu = request.getParameter("menu");
         String action = request.getParameter("action");
+        User uss=(User)request.getSession().getAttribute("luser");
+        request.getSession().setAttribute("User", uss);
         if (menu.equals("Principal")) {
             request.getRequestDispatcher("principal.jsp").forward(request, response);
         }
@@ -115,7 +118,7 @@ public class Controller extends HttpServlet {
                     ccodep = p.getId();
                     cnamep = request.getParameter("vnamep");
                     cquantityp = Integer.parseInt(request.getParameter("vquantityp"));
-
+                    
                     t = new Transaction();
                     t.setItem(item);
                     t.setMidproduct(ccodep);
@@ -128,7 +131,7 @@ public class Controller extends HttpServlet {
                     break;
                 case "Save":
                     //Save Transaction-----------------------------------
-                    t.setMiduser(1);
+                    t.setMiduser(uss.getId());
                     t.setSnumber(nserie);
                     java.util.Date timenow=new java.util.Date();
                     SimpleDateFormat formateador = new SimpleDateFormat("yyy/MM/dd");
@@ -173,6 +176,38 @@ public class Controller extends HttpServlet {
                     request.getRequestDispatcher("transactions.jsp").forward(request, response);
             }
             request.getRequestDispatcher("transactions.jsp").forward(request, response);
+        }
+        if (menu.equals("Inventory")) {
+            switch (action) {
+                case "List":
+                    List listPs=pdao.ListP();
+                    request.setAttribute("products", listPs);
+                    break;
+                case "History":
+                    request.getRequestDispatcher("Controller?menu=Ihistory&action=List").forward(request, response);
+                    break;
+                case "Modify":
+                    request.getRequestDispatcher("Controller?menu=Transactions&action=default").forward(request, response);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            request.getRequestDispatcher("inventory.jsp").forward(request, response);
+        }
+        if (menu.equals("Ihistory")) {
+            switch (action) {
+                case "List":
+                    List listH=pdao.ListP();
+                    List listD=pdao.ListP();
+                    request.setAttribute("history", listH);
+                    request.setAttribute("details", listD);
+                    break;
+                case "":
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            request.getRequestDispatcher("invhistory.jsp").forward(request, response);
         }
         if (menu.equals("Profile")) {
             switch (action) {

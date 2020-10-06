@@ -4,6 +4,8 @@ import config.ConnectionDb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TransactionDAO {
     
@@ -82,6 +84,29 @@ public class TransactionDAO {
         return r;
     }
     
+    public List ReadTransaction(){
+        String sql = "select * from t_transaction";
+        List<Transaction> listT = new ArrayList<>();
+        try {
+            con = cn.Connect();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Transaction tr=new Transaction();
+                tr.setId(rs.getInt(1));
+                tr.setMiduser(rs.getInt(2));
+                tr.setSnumber(rs.getString(3));
+                tr.setMdate(rs.getString(4));
+                tr.setMstatusp(rs.getString(5));
+                /*    espacio foto    */
+                listT.add(tr);
+            }
+        } catch (Exception e) {
+            
+        }
+        return listT;
+    }
+    
     public int SaveDetailsT(Transaction tran){
         String sql="insert into tran_x_prod (id_transaction, id_product, quantity_t) values(?,?,?)";
         try {
@@ -94,5 +119,27 @@ public class TransactionDAO {
         } catch (Exception e) {
         }
         return r;
+    }
+    
+    public List ReadDetailsT(){
+        String sql = "select * from tran_x_prod";
+        List<Transaction> listDt = new ArrayList<>();
+        try {
+            con = cn.Connect();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Transaction tr=new Transaction();
+                tr.setMiduser(rs.getInt(2));
+                tr.setSnumber(rs.getString(3));
+                tr.setMdate(rs.getString(4));
+                tr.setMstatusp(rs.getString(5));
+                /*    espacio foto    */
+                listDt.add(tr);
+            }
+        } catch (Exception e) {
+            
+        }
+        return listDt;
     }
 }
