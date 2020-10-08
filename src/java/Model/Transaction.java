@@ -4,26 +4,28 @@ package Model;
 public class Transaction {
     
     Integer id;
+    String snumber;
+    String mdate;
     Integer item;
     Integer miduser;
+    String mnameuser;
     Integer midproduct;
-    String snumber;
     String mnamep;
-    String mdate;
     Integer mquantity;
     String mstatusp;
 
     public Transaction() {
     }
 
-    public Transaction(Integer id, Integer item, Integer miduser, Integer midproduct, String snumber, String mnamep, String mdate, Integer mquantity, String mstatusp) {
+    public Transaction(Integer id, String snumber, String mdate, Integer item, Integer miduser, String mnameuser, Integer midproduct, String mnamep, Integer mquantity, String mstatusp) {
         this.id = id;
+        this.snumber = snumber;
+        this.mdate = mdate;
         this.item = item;
         this.miduser = miduser;
+        this.mnameuser = mnameuser;
         this.midproduct = midproduct;
-        this.snumber = snumber;
         this.mnamep = mnamep;
-        this.mdate = mdate;
         this.mquantity = mquantity;
         this.mstatusp = mstatusp;
     }
@@ -34,6 +36,22 @@ public class Transaction {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSnumber() {
+        return snumber;
+    }
+
+    public void setSnumber(String snumber) {
+        this.snumber = snumber;
+    }
+
+    public String getMdate() {
+        return mdate;
+    }
+
+    public void setMdate(String mdate) {
+        this.mdate = mdate;
     }
 
     public Integer getItem() {
@@ -52,6 +70,14 @@ public class Transaction {
         this.miduser = miduser;
     }
 
+    public String getMnameuser() {
+        return mnameuser;
+    }
+
+    public void setMnameuser(String mnameuser) {
+        this.mnameuser = mnameuser;
+    }
+
     public Integer getMidproduct() {
         return midproduct;
     }
@@ -60,28 +86,12 @@ public class Transaction {
         this.midproduct = midproduct;
     }
 
-    public String getSnumber() {
-        return snumber;
-    }
-
-    public void setSnumber(String snumber) {
-        this.snumber = snumber;
-    }
-
     public String getMnamep() {
         return mnamep;
     }
 
     public void setMnamep(String mnamep) {
         this.mnamep = mnamep;
-    }
-
-    public String getMdate() {
-        return mdate;
-    }
-
-    public void setMdate(String mdate) {
-        this.mdate = mdate;
     }
 
     public Integer getMquantity() {

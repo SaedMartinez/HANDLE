@@ -85,7 +85,7 @@ public class TransactionDAO {
     }
     
     public List ReadTransaction(){
-        String sql = "select * from t_transaction";
+        String sql = "SELECT t_transaction.id_transaction, t_transaction.serial_number, t_transaction.date, t_user.name, t_user.id_user FROM t_transaction, INNER JOIN t_user, ON t_transaction.id_user=t_user.id_user";
         List<Transaction> listT = new ArrayList<>();
         try {
             con = cn.Connect();
@@ -94,15 +94,14 @@ public class TransactionDAO {
             while (rs.next()) {
                 Transaction tr=new Transaction();
                 tr.setId(rs.getInt(1));
-                tr.setMiduser(rs.getInt(2));
-                tr.setSnumber(rs.getString(3));
-                tr.setMdate(rs.getString(4));
-                tr.setMstatusp(rs.getString(5));
+                tr.setSnumber(rs.getString(2));
+                tr.setMdate(rs.getString(3));
+                tr.setMnameuser(rs.getString(4));
+                tr.setMiduser(rs.getInt(5));
                 /*    espacio foto    */
                 listT.add(tr);
             }
-        } catch (Exception e) {
-            
+        } catch (Exception e) {    
         }
         return listT;
     }
@@ -121,8 +120,8 @@ public class TransactionDAO {
         return r;
     }
     
-    public List ReadDetailsT(){
-        String sql = "select * from tran_x_prod";
+    public List ReadDetailsT(int id){
+        String sql = "SELECT tran_x_prod.quantity_t, t_product.id_product, t_product.name FROM tran_x_prod INNER JOIN t_product ON tran_x_prod.id_product=t_product.id_product WHERE tran_x_prod.id_transaction="+id;
         List<Transaction> listDt = new ArrayList<>();
         try {
             con = cn.Connect();
@@ -130,15 +129,13 @@ public class TransactionDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 Transaction tr=new Transaction();
-                tr.setMiduser(rs.getInt(2));
-                tr.setSnumber(rs.getString(3));
-                tr.setMdate(rs.getString(4));
-                tr.setMstatusp(rs.getString(5));
+                tr.setMquantity(rs.getInt(1));
+                tr.setMidproduct(rs.getInt(2));
+                tr.setMnamep(rs.getString(3));
                 /*    espacio foto    */
                 listDt.add(tr);
             }
-        } catch (Exception e) {
-            
+        } catch (Exception e) { 
         }
         return listDt;
     }
