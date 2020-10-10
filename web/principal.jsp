@@ -30,7 +30,7 @@
                     ${User.getName()}
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="Controller?menu=Profile&action=default" target="myframe">
                         <img src="img/usuario.png" alt="60" width="60"/>
                     </a>
                     <a class="dropdown-item" href="Controller?menu=Profile&action=default" target="myframe">correo userrr</a>

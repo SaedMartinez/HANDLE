@@ -85,8 +85,8 @@ public class TransactionDAO {
     }
     
     public List ReadTransaction(){
-        String sql = "SELECT t_transaction.id_transaction, t_transaction.serial_number, t_transaction.date, t_user.name, t_user.id_user FROM t_transaction, INNER JOIN t_user, ON t_transaction.id_user=t_user.id_user";
-        List<Transaction> listT = new ArrayList<>();
+        String sql = "SELECT t_transaction.id_transaction, t_transaction.serial_number, t_transaction.date, t_user.name, t_user.id_user FROM t_transaction INNER JOIN t_user ON t_transaction.id_user=t_user.id_user";
+        List<Transaction> listH = new ArrayList<>();
         try {
             con = cn.Connect();
             ps = con.prepareStatement(sql);
@@ -99,11 +99,30 @@ public class TransactionDAO {
                 tr.setMnameuser(rs.getString(4));
                 tr.setMiduser(rs.getInt(5));
                 /*    espacio foto    */
-                listT.add(tr);
+                listH.add(tr);
             }
         } catch (Exception e) {    
         }
-        return listT;
+        return listH;
+    }
+    
+    public Transaction ReadTransactionId(int id){
+        Transaction tr=new Transaction();
+        String sql = "SELECT t_transaction.id_transaction, t_transaction.serial_number, t_transaction.date, t_user.name, t_user.id_user FROM t_transaction INNER JOIN t_user ON t_transaction.id_user=t_user.id_user WHERE t_transaction.id_transaction="+id;
+        try {
+            con = cn.Connect();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                tr.setId(rs.getInt(1));
+                tr.setSnumber(rs.getString(2));
+                tr.setMdate(rs.getString(3));
+                tr.setMnameuser(rs.getString(4));
+                tr.setMiduser(rs.getInt(5));
+            }
+        } catch (Exception e) {    
+        }
+        return tr;
     }
     
     public int SaveDetailsT(Transaction tran){

@@ -64,47 +64,55 @@
             </div>
             <div class="col-sm-7">
                 <div class="card"> 
-                    <div class="card-body"> 
-                        <div class="d-flex col-sm-5 ml-auto">
-                            <label>Serie</label>
+                    <form action="Controller?menu=Transactions" method="post">
+                        <div class="card-body"> 
+                            <div class="d-flex">
+                                <div class="col-sm-4 d-flex">
+                                    <input type="radio" name="type" id="In" value="In"><label for="In">Entrada</label>
+                                    <input type="radio" name="type" id="Out" value="In"><label for="Out">Salida</label>
+                                </div>
+                                <div class="col-sm-6 ml-auto d-flex">
+                                    <label>Serie</label>
+                                    <br>
+                                    <input type=" text" name="vsnumber" value="${nserie}" class="form-control">
+                                </div>
+                            </div>
                             <br>
-                            <input type=" text" name="vsnumber" value="${nserie}" class="form-control">
-                        </div>
-                        <br>
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Nro</th>
-                                    <th>Codigo</th>
-                                    <th>Descripcion</th>
-                                    <th>Cantidad</th>
-                                    <th class="ae" >Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="list" items="${listP}">
+                            <table class="table table-hover">
+                                <thead>
                                     <tr>
-                                        <td>${list.getItem()}</td>
-                                        <td>${list.getMidproduct()}</td>
-                                        <td>${list.getMnamep()}</td>
-                                        <td>${list.getMquantity()}</td>
-                                        <td class="d-flex">
-                                            <a href="#" class="btn btn-warning">Editar</a> 
-                                            <a href="#" class="btn btn-danger" style="margin-left: 10px">X</a> 
-                                        </td>
+                                        <th>Nro</th>
+                                        <th>Codigo</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th class="ae" >Acciones</th>
                                     </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="card-footer d-flex">
-                        <div class="col-sm-6">
-                            <a href="Controller?menu=Transactions&action=Save" onclick="print()" class="btn btn-outline-success">Generar</a>
-                            <input type=" submit" name="action" value="Cancel"  class="btn btn-outline-danger">
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="list" items="${listP}">
+                                        <tr>
+                                            <td>${list.getItem()}</td>
+                                            <td>${list.getMidproduct()}</td>
+                                            <td>${list.getMnamep()}</td>
+                                            <td>${list.getMquantity()}</td>
+                                            <td class="d-flex">
+                                                <a href="#" class="btn btn-warning">Editar</a> 
+                                                <a href="#" class="btn btn-danger" style="margin-left: 10px">X</a> 
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="card-footer d-flex">
+                            <div class="col-sm-6">
+                                <button type=" submit" name="action" value="Cancel" class="btn btn-outline-danger">Cancelar</button>
+                                <button type=" submit" name="action" value="Save"   onclick="print()"class="btn btn-outline-success">Generar</button>
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -24,6 +24,7 @@ public class Controller extends HttpServlet {
     Product p = new Product();
     ProductDAO pdao=new ProductDAO();
     Transaction t=new Transaction();
+    Transaction dT=new Transaction();
     TransactionDAO tdao=new TransactionDAO();
     TransactionDAO tdao2=new TransactionDAO();
     
@@ -33,6 +34,7 @@ public class Controller extends HttpServlet {
         int idu; 
         
         //transactions
+        int cidt; 
         List<Transaction> listP = new ArrayList<>();
         List<Product> listP2=new ArrayList<>();
         int item;
@@ -150,14 +152,22 @@ public class Controller extends HttpServlet {
                     }
 
                     //Update Stock --------------------------------
+                    String typeT="";
+                    typeT=request.getParameter("type");
                     for (int i = 0; i < listP.size(); i++) {
                         int cantidad = listP.get(i).getMquantity();
                         int idproducto = listP.get(i).getMidproduct();
                         Product pr = new Product();
                         ProductDAO pdaot = new ProductDAO();
                         pr = pdaot.SearchP(idproducto);
-                        int su = pr.getStock()-cantidad;
-                        pdaot.UpsdateS(su, idproducto);
+                        if(typeT.equals("In")){
+                            int su = pr.getStock()+cantidad;
+                            pdaot.UpsdateS(su, idproducto);
+                        }
+                        if(typeT.equals("Out")){
+                            int su = pr.getStock()-cantidad;
+                            pdaot.UpsdateS(su, idproducto);
+                        }
                     }
                     listP = new ArrayList<>();
                     break;
@@ -197,16 +207,22 @@ public class Controller extends HttpServlet {
         if (menu.equals("Ihistory")) {
             switch (action) {
                 case "List":
-                    List listH=pdao.ListP();
-                    List listD=pdao.ListP();
+                    List listH=tdao.ReadTransaction();
                     request.setAttribute("history", listH);
-                    request.setAttribute("details", listD);
+                    request.setAttribute("dT", dT);
                     break;
-                case "":
+                case "Details":
+                    cidt=Integer.parseInt(request.getParameter("vidt"));
+                    dT=tdao.ReadTransactionId(cidt);
+                    List listD=tdao.ReadDetailsT(cidt);
+                    request.setAttribute("details", listD);
+                    request.setAttribute("dT", dT);
+                    request.getRequestDispatcher("Controller?menu=Ihistory&action=List").forward(request, response);
                     break;
                 default:
                     throw new AssertionError();
             }
+            dT=new Transaction();
             request.getRequestDispatcher("invhistory.jsp").forward(request, response);
         }
         if (menu.equals("Profile")) {

@@ -34,7 +34,6 @@
             <div class="col-sm-3 text-center">
                 <form action="Controller?menu=Inventory" method="POST">
                     <div style="height: 180px">
-
                     </div>
                     <div class="">
                         <button type="submit" name="action" value="History" class=" btn btn-outline-info">Ver Historial</button>
