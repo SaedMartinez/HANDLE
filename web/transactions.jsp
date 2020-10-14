@@ -69,7 +69,7 @@
                             <div class="d-flex">
                                 <div class="col-sm-4 d-flex">
                                     <input type="radio" name="type" id="In" value="In"><label for="In">Entrada</label>
-                                    <input type="radio" name="type" id="Out" value="In"><label for="Out">Salida</label>
+                                    <input type="radio" name="type" id="Out" value="Out"><label for="Out">Salida</label>
                                 </div>
                                 <div class="col-sm-6 ml-auto d-flex">
                                     <label>Serie</label>
