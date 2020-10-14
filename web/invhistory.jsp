@@ -37,9 +37,9 @@
             <div class="card col-sm-7">
                 <div class="card-body" >
                     <div class="d-flex">
-                        <label class="form-control">${dT.getSnumber()}</label>
-                        <label class="form-control">${dT.getMdate()}</label>
-                        <label class="form-control">${dT.getMnameuser()}</label>
+                        <label class="form-control text-center">${dT.getSnumber()}</label>
+                        <label class="form-control text-center">${dT.getMdate()}</label>
+                        <label class="form-control text-center">${dT.getMnameuser()}</label>
                     </div>
                     <table class="table">
                         <tr>
