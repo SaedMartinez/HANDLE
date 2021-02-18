@@ -74,7 +74,6 @@ public class UserDAO {
             ps.setString(5, us.getUser());
             ps.executeUpdate();
         } catch (Exception e) {
-
         }
         return r;
     }
