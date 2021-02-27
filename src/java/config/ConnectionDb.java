@@ -5,9 +5,13 @@ import java.sql.DriverManager;
 
 public class ConnectionDb {
     Connection con;
+    /* Values before stablished by test server
     String url="jdbc:mysql://172.30.2.15:3306/handle_pruebas";
     String user="root";
-    String pass="QCNlhx91693";
+    */
+    String url="jdbc:mysql://localhost:3306/handle_pruebas";
+    String user="root";
+    String pass="123";
     
     public Connection Connect(){
         try {
